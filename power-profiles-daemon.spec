@@ -1,6 +1,6 @@
 Name:           power-profiles-daemon
 Version:        0.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Makes power profiles handling available over D-Bus
 
 License:        GPLv3+
@@ -52,6 +52,12 @@ This package contains the documentation for %{name}.
 %postun
 %systemd_postun_with_restart %{name}.service
 
+%triggerun -- power-profiles-daemon < 0.1-2
+
+# This is for upgrades from previous versions before power-profiles-daemon became part
+# of the system daemons.
+systemctl --no-reload preset power-profiles-daemon.service &>/dev/null || :
+
 %files
 %license COPYING
 %doc README.md
@@ -66,5 +72,9 @@ This package contains the documentation for %{name}.
 %{_datadir}/gtk-doc/html/%{name}/
 
 %changelog
+* Wed Oct 28 2020 Bastien Nocera <bnocera@redhat.com> - 0.1-2
++ power-profiles-daemon-0.1-2
+- Reload presets when updating from an older version
+
 * Fri Aug 07 2020 Bastien Nocera <bnocera@redhat.com> - 0.1-1
 - Initial package
