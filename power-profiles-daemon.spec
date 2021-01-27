@@ -1,6 +1,6 @@
 Name:           power-profiles-daemon
 Version:        0.1
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Makes power profiles handling available over D-Bus
 
 License:        GPLv3+
@@ -72,6 +72,9 @@ systemctl --no-reload preset power-profiles-daemon.service &>/dev/null || :
 %{_datadir}/gtk-doc/html/%{name}/
 
 %changelog
+* Wed Jan 27 2021 Fedora Release Engineering <releng@fedoraproject.org> - 0.1-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_34_Mass_Rebuild
+
 * Wed Oct 28 2020 Bastien Nocera <bnocera@redhat.com> - 0.1-2
 + power-profiles-daemon-0.1-2
 - Reload presets when updating from an older version
