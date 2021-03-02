@@ -1,6 +1,6 @@
 Name:           power-profiles-daemon
 Version:        0.1
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Makes power profiles handling available over D-Bus
 
 License:        GPLv3+
@@ -72,6 +72,10 @@ systemctl --no-reload preset power-profiles-daemon.service &>/dev/null || :
 %{_datadir}/gtk-doc/html/%{name}/
 
 %changelog
+* Tue Mar 02 2021 Zbigniew Jędrzejewski-Szmek <zbyszek@in.waw.pl> - 0.1-4
+- Rebuilt for updated systemd-rpm-macros
+  See https://pagure.io/fesco/issue/2583.
+
 * Wed Jan 27 2021 Fedora Release Engineering <releng@fedoraproject.org> - 0.1-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_34_Mass_Rebuild
 
