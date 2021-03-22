@@ -1,11 +1,11 @@
 Name:           power-profiles-daemon
-Version:        0.1
-Release:        4%{?dist}
+Version:        0.8
+Release:        1%{?dist}
 Summary:        Makes power profiles handling available over D-Bus
 
 License:        GPLv3+
 URL:            https://gitlab.freedesktop.org/hadess/power-profiles-daemon
-Source0:        https://gitlab.freedesktop.org/hadess/power-profiles-daemon/uploads/5efc7a766d5a50ed811e085035c7b967/%{name}-%{version}.tar.xz
+Source0:        https://gitlab.freedesktop.org/hadess/power-profiles-daemon/uploads/1b74764684f7f3b320abbe8bc0755f4c/power-profiles-daemon-0.8.tar.xz
 
 BuildRequires:  meson
 BuildRequires:  gcc
@@ -18,6 +18,7 @@ BuildRequires:  pkgconfig(upower-glib)
 BuildRequires:  systemd
 BuildRequires:  umockdev
 BuildRequires:  python3-dbusmock
+BuildRequires:  python3-pylint
 BuildRequires:  systemd-rpm-macros
 
 %description
@@ -61,6 +62,7 @@ systemctl --no-reload preset power-profiles-daemon.service &>/dev/null || :
 %files
 %license COPYING
 %doc README.md
+%{_bindir}/powerprofilesctl
 %{_libexecdir}/%{name}
 %{_unitdir}/%{name}.service
 %{_sysconfdir}/dbus-1/system.d/net.hadess.PowerProfiles.conf
@@ -72,6 +74,10 @@ systemctl --no-reload preset power-profiles-daemon.service &>/dev/null || :
 %{_datadir}/gtk-doc/html/%{name}/
 
 %changelog
+* Mon Mar 22 2021 Bastien Nocera <bnocera@redhat.com> - 0.8-1
++ power-profiles-daemon-0.8-1
+- Update to 0.8
+
 * Tue Mar 02 2021 Zbigniew Jędrzejewski-Szmek <zbyszek@in.waw.pl> - 0.1-4
 - Rebuilt for updated systemd-rpm-macros
   See https://pagure.io/fesco/issue/2583.
