@@ -1,6 +1,6 @@
 Name:           power-profiles-daemon
 Version:        0.8.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Makes power profiles handling available over D-Bus
 
 License:        GPLv3+
@@ -18,7 +18,6 @@ BuildRequires:  pkgconfig(upower-glib)
 BuildRequires:  systemd
 BuildRequires:  umockdev
 BuildRequires:  python3-dbusmock
-BuildRequires:  python3-pylint
 BuildRequires:  systemd-rpm-macros
 
 %description
@@ -74,6 +73,10 @@ systemctl --no-reload preset power-profiles-daemon.service &>/dev/null || :
 %{_datadir}/gtk-doc/html/%{name}/
 
 %changelog
+* Wed Apr 14 2021 Bastien Nocera <bnocera@redhat.com> - 0.8.1-2
++ power-profiles-daemon-0.8.1-2
+- Remove linter, as apparently unwanted in check section
+
 * Thu Apr 01 2021 Bastien Nocera <bnocera@redhat.com> - 0.8.1-1
 + power-profiles-daemon-0.8.1-1
 - Update to 0.8.1
