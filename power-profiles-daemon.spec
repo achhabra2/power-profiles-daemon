@@ -1,11 +1,11 @@
 Name:           power-profiles-daemon
-Version:        0.8.1
-Release:        2%{?dist}
+Version:        0.9.0
+Release:        1%{?dist}
 Summary:        Makes power profiles handling available over D-Bus
 
 License:        GPLv3+
 URL:            https://gitlab.freedesktop.org/hadess/power-profiles-daemon
-Source0:        https://gitlab.freedesktop.org/hadess/power-profiles-daemon/uploads/329f1ed3b068f6c59b8441f01a4e711a/power-profiles-daemon-0.8.1.tar.xz
+Source0:        https://gitlab.freedesktop.org/hadess/power-profiles-daemon/uploads/28dd86921d78b4e0ae03447e066ae247/power-profiles-daemon-0.9.0.tar.xz
 
 BuildRequires:  meson
 BuildRequires:  gcc
@@ -39,6 +39,7 @@ This package contains the documentation for %{name}.
 
 %install
 %meson_install
+mkdir -p $RPM_BUILD_ROOT/%{_localstatedir}/lib/power-profiles-daemon
 
 %check
 %meson_test
@@ -66,6 +67,7 @@ systemctl --no-reload preset power-profiles-daemon.service &>/dev/null || :
 %{_unitdir}/%{name}.service
 %{_sysconfdir}/dbus-1/system.d/net.hadess.PowerProfiles.conf
 %{_datadir}/dbus-1/system-services/net.hadess.PowerProfiles.service
+%{_localstatedir}/lib/power-profiles-daemon
 
 %files docs
 %dir %{_datadir}/gtk-doc/
@@ -73,6 +75,10 @@ systemctl --no-reload preset power-profiles-daemon.service &>/dev/null || :
 %{_datadir}/gtk-doc/html/%{name}/
 
 %changelog
+* Tue Jul 20 2021 Bastien Nocera <bnocera@redhat.com> - 0.9.0-1
++ power-profiles-daemon-0.9.0-1
+- Update to 0.9.0
+
 * Wed Apr 14 2021 Bastien Nocera <bnocera@redhat.com> - 0.8.1-2
 + power-profiles-daemon-0.8.1-2
 - Remove linter, as apparently unwanted in check section
