@@ -1,11 +1,11 @@
 Name:           power-profiles-daemon
-Version:        0.10.0
+Version:        0.10.1
 Release:        1%{?dist}
 Summary:        Makes power profiles handling available over D-Bus
 
 License:        GPLv3+
 URL:            https://gitlab.freedesktop.org/hadess/power-profiles-daemon
-Source0:        https://gitlab.freedesktop.org/hadess/power-profiles-daemon/uploads/fe794e91144e17791737568943c44f9a/power-profiles-daemon-0.10.0.tar.xz
+Source0:        https://gitlab.freedesktop.org/hadess/power-profiles-daemon/uploads/3ef8a68ea5d23e23d893a688b63079d0/power-profiles-daemon-0.10.1.tar.xz
 
 BuildRequires:  meson
 BuildRequires:  gcc
@@ -77,6 +77,10 @@ systemctl --no-reload preset power-profiles-daemon.service &>/dev/null || :
 %{_datadir}/gtk-doc/html/%{name}/
 
 %changelog
+* Thu Oct 28 2021 Bastien Nocera <bnocera@redhat.com> - 0.10.1-1
+- power-profiles-daemon-0.10.1-1
+- Update to 0.10.1
+
 * Mon Oct 04 2021 Bastien Nocera <bnocera@redhat.com> - 0.10.0-1
 + power-profiles-daemon-0.10.0-1
 - Update to 0.10.0
