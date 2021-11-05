@@ -1,6 +1,6 @@
 Name:           power-profiles-daemon
 Version:        0.10.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Makes power profiles handling available over D-Bus
 
 License:        GPLv3+
@@ -54,11 +54,12 @@ mkdir -p $RPM_BUILD_ROOT/%{_localstatedir}/lib/power-profiles-daemon
 %postun
 %systemd_postun_with_restart %{name}.service
 
-%triggerun -- power-profiles-daemon < 0.1-2
-
-# This is for upgrades from previous versions before power-profiles-daemon became part
-# of the system daemons.
-systemctl --no-reload preset power-profiles-daemon.service &>/dev/null || :
+%triggerpostun -- power-profiles-daemon < 0.10.1-2
+if [ $1 -gt 1 ] && [ -x /usr/bin/systemctl ] ; then
+    # Apply power-profiles-daemon.service preset on upgrades to F35 and F36 as
+    # the preset was changed to enabled in F35.
+    /usr/bin/systemctl --no-reload preset power-profiles-daemon.service || :
+fi
 
 %files
 %license COPYING
@@ -77,6 +78,9 @@ systemctl --no-reload preset power-profiles-daemon.service &>/dev/null || :
 %{_datadir}/gtk-doc/html/%{name}/
 
 %changelog
+* Fri Nov 05 2021 Kalev Lember <klember@redhat.com> - 0.10.1-2
+- Apply power-profiles-daemon.service preset on upgrades to F35 and F36
+
 * Thu Oct 28 2021 Bastien Nocera <bnocera@redhat.com> - 0.10.1-1
 - power-profiles-daemon-0.10.1-1
 - Update to 0.10.1
