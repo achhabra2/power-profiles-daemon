@@ -1,6 +1,6 @@
 Name:           power-profiles-daemon
 Version:        0.12
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Makes power profiles handling available over D-Bus
 
 License:        GPLv3+
@@ -78,6 +78,9 @@ fi
 %{_datadir}/gtk-doc/html/%{name}/
 
 %changelog
+* Fri Jul 22 2022 Fedora Release Engineering <releng@fedoraproject.org> - 0.12-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_37_Mass_Rebuild
+
 * Tue Jun 28 2022 Bastien Nocera <bnocera@redhat.com> - 0.12-1
 + power-profiles-daemon-0.12-1
 - Update to 0.12
