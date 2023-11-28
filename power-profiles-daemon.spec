@@ -4,8 +4,10 @@ Release:        2%{?dist}
 Summary:        Makes power profiles handling available over D-Bus
 
 License:        GPLv3+
-URL:            https://github.com/achhabra2/power-profiles-daemon
-Source0:        https://github.com/achhabra2/power-profiles-daemon/releases/download/v1/power-profiles-daemon-multi-drivers.tar.gz
+URL:            https://gitlab.freedesktop.org/upower/power-profiles-daemon
+Source0:        https://gitlab.freedesktop.org/upower/power-profiles-daemon/-/archive/0.13/power-profiles-daemon-0.13.tar.gz
+
+Patch0:         123.patch
 
 BuildRequires:  meson
 BuildRequires:  gcc
@@ -32,7 +34,7 @@ BuildArch:      noarch
 This package contains the documentation for %{name}.
 
 %prep
-%autosetup
+%autosetup -p1 -n power-profiles-daemon-%{version}
 
 %build
 %meson -Dgtk_doc=true
