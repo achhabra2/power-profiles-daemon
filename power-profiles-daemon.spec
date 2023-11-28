@@ -4,8 +4,8 @@ Release:        2%{?dist}
 Summary:        Makes power profiles handling available over D-Bus
 
 License:        GPLv3+
-URL:            https://gitlab.freedesktop.org/hadess/power-profiles-daemon
-Source0:        https://gitlab.freedesktop.org/hadess/power-profiles-daemon/uploads/1f2ea40547b2af8d255875d7085211e5/power-profiles-daemon-0.13.tar.xz
+URL:            https://github.com/achhabra2/power-profiles-daemon
+Source0:        https://github.com/achhabra2/power-profiles-daemon/releases/download/v1/power-profiles-daemon-multi-drivers.tar.gz
 
 BuildRequires:  meson
 BuildRequires:  gcc
