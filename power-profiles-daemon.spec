@@ -1,13 +1,13 @@
 Name:           power-profiles-daemon
 Version:        0.13
-Release:        2%{?dist}
+Release:        5%{?dist}
 Summary:        Makes power profiles handling available over D-Bus
 
 License:        GPLv3+
 URL:            https://gitlab.freedesktop.org/upower/power-profiles-daemon
 Source0:        https://gitlab.freedesktop.org/upower/power-profiles-daemon/-/archive/0.13/power-profiles-daemon-0.13.tar.gz
 
-Patch0:         123.patch
+Patch0:         127.patch
 
 BuildRequires:  meson
 BuildRequires:  gcc
